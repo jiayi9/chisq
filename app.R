@@ -15,7 +15,7 @@ server <- function(input, output) {
   
   for(i in 1:150){
     x[1,1] = i 
-    p[i] =  chisq.test(x)$p.value
+    suppressWarnings({p[i] =  chisq.test(x)$p.value })
   }
   
   
@@ -23,7 +23,7 @@ server <- function(input, output) {
   
   for(i in 1:150){
     x[1,1] = i 
-    p2[i] =  fisher.test(x)$p.value
+    suppressWarnings({p2[i] =  fisher.test(x)$p.value})
   }
   
   
@@ -31,7 +31,7 @@ server <- function(input, output) {
   simu.chisq = c()
   for(i in 1:150){
     x[1,1] = i 
-    simu.chisq[i] =  chisq.test(x,simulate.p.value = TRUE,B = 1000)$p.value
+    suppressWarnings({simu.chisq[i] =  chisq.test(x,simulate.p.value = TRUE,B = 1000)$p.value})
   }
   
   
@@ -43,7 +43,7 @@ server <- function(input, output) {
   simu.fisher = c()
   for(i in 1:150){
     x[1,1] = i 
-    simu.fisher[i] =  fisher.test(x,simulate.p.value = TRUE,B = 1000)$p.value
+    suppressWarnings({simu.fisher[i] =  fisher.test(x,simulate.p.value = TRUE,B = 1000)$p.value})
   }
   
   
@@ -84,7 +84,7 @@ server <- function(input, output) {
     
     for(i in 1:150){
       x[1,1] = i 
-      p[i] =  chisq.test(x)$p.value
+      suppressWarnings({p[i] =  chisq.test(x)$p.value})
     }
     
     
@@ -92,7 +92,7 @@ server <- function(input, output) {
     
     for(i in 1:150){
       x[1,1] = i 
-      p2[i] =  fisher.test(x)$p.value
+      suppressWarnings({p2[i] =  fisher.test(x)$p.value})
     }
     
     
@@ -100,14 +100,14 @@ server <- function(input, output) {
     simu.chisq = c()
     for(i in 1:150){
       x[1,1] = i 
-      simu.chisq[i] =  chisq.test(x,simulate.p.value = TRUE,B = 1000)$p.value
+      suppressWarnings({simu.chisq[i] =  chisq.test(x,simulate.p.value = TRUE,B = 1000)$p.value})
     }
     
     
     simu.fisher = c()
     for(i in 1:150){
       x[1,1] = i 
-      simu.fisher[i] =  fisher.test(x,simulate.p.value = TRUE,B = 1000)$p.value
+      suppressWarnings({simu.fisher[i] =  fisher.test(x,simulate.p.value = TRUE,B = 1000)$p.value})
     }
     
     plot(x=1:150,y=p,type="l",main="P-value Behaviors Comparison"
@@ -144,7 +144,7 @@ server <- function(input, output) {
     
     for(i in 1:150){
       x[1,1] = i 
-      p[i] =  chisq.test(x)$p.value
+      suppressWarnings({p[i] =  chisq.test(x)$p.value})
     }
     
     
@@ -152,7 +152,7 @@ server <- function(input, output) {
     
     for(i in 1:150){
       x[1,1] = i 
-      p2[i] =  fisher.test(x)$p.value
+      suppressWarnings({p2[i] =  fisher.test(x)$p.value})
     }
     
     
@@ -160,14 +160,14 @@ server <- function(input, output) {
     simu.chisq = c()
     for(i in 1:150){
       x[1,1] = i 
-      simu.chisq[i] =  chisq.test(x,simulate.p.value = TRUE,B = 1000)$p.value
+      suppressWarnings({simu.chisq[i] =  chisq.test(x,simulate.p.value = TRUE,B = 1000)$p.value})
     }
     
     
     simu.fisher = c()
     for(i in 1:150){
       x[1,1] = i 
-      simu.fisher[i] =  fisher.test(x,simulate.p.value = TRUE,B = 1000)$p.value
+      suppressWarnings({ simu.fisher[i] =  fisher.test(x,simulate.p.value = TRUE,B = 1000)$p.value})
     }
     
     plot(x=1:150,y=p,type="l",main="P-value Behaviors Comparison"
